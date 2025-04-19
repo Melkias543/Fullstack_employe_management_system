@@ -35,7 +35,7 @@ db.query(sql, [email], (err, result) => {
     const email = result[0].email;
     const token = jwt.sign(
       { role: "employee", Email: email, id: result[0].id }, // Fixed ID issue
-      "jwt_secret_key",
+      process.env.SCREET_KEY,
       { expiresIn: "1d" }
     );
 

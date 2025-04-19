@@ -8,7 +8,7 @@ import { employeeRoute } from "./employee.js";
 
 
 const app= express();
-const PORT= 4500;
+const PORT=process.env.PORT;
 app.use(cookieParser());
 
 // import { fileURLToPath } from "url";
@@ -43,7 +43,7 @@ const verify = (req, res, next) => {
     return res.status(401).json({ status: false, err: "No token provided" });
   }
 
-  jwt.verify(token, "jwt_secret_key", (err, decode) => {
+  jwt.verify(token,process.env.SCREET_KEY, (err, decode) => {
     if (err) {
       console.log(err);
       return res.status(403).json({ status: false, err: "Invalid token" });

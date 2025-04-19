@@ -7,9 +7,7 @@ import path from "path"
 import bcrpt from "bcrypt"
 
 
-
-
-router.post("/getAdmin", (req,res)=>{
+router.post("/getAdmin", (req, res) => {
   const {email,password} =req.body
 
 
@@ -25,7 +23,7 @@ db.query(sql, [email,password], (err, result) => {
     const email = result[0].email;
     const id = result[0].id;
     // console.log(email)
-const token = jwt.sign({role:"admin", Email:email, id:id},"jwt_secret_key", {expiresIn:"1d"}); 
+const token = jwt.sign({role:"admin", Email:email, id:id},process.env.SCREET_KEY, {expiresIn:"1d"}); 
 
 res.cookie("token", token);
 res.status(200).json({ loginStatus: true, msg: "Login successful!" });

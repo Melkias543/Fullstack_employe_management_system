@@ -17,10 +17,10 @@ function Login() {
     e.preventDefault();
 
     await axios
-      .post("http://localhost:4500/auth/getAdmin", values)
+      .post("http://localhost:1234/auth/getAdmin", values)
       .then((res) => {
         console.log(res);
-
+        console.log(res.data.loginStatus);
         if (res.data.loginStatus) {
           navigate("/");
         } else {

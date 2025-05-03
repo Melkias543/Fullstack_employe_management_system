@@ -21,7 +21,10 @@ try {
  
  
     // Adding a new category
-   const res = await axios.post("http://localhost:4500/auth/add_category", category);
+   const res = await axios.post(
+     "http://localhost:1234/auth/add_category",
+     category
+   );
    console.log(res)
     if (res.data.message === "Category added successfully") {
       navigate("/dashboard/category");

@@ -10,7 +10,6 @@ import bcrpt from "bcrypt"
 router.post("/getAdmin", (req, res) => {
   const {email,password} =req.body
 
-
 const sql = "SELECT * FROM admin WHERE email=? and password=? ";
 
 db.query(sql, [email,password], (err, result) => {
@@ -23,8 +22,8 @@ db.query(sql, [email,password], (err, result) => {
     const email = result[0].email;
     const id = result[0].id;
     // console.log(email)
-const token = jwt.sign({role:"admin", Email:email, id:id},process.env.SCREET_KEY, {expiresIn:"1d"}); 
-
+const token = jwt.sign({role:"admin", Email:email, id:id},"process.env.SCREET_KEY", {expiresIn:"1d"}); 
+// console.log(token)
 res.cookie("token", token);
 res.status(200).json({ loginStatus: true, msg: "Login successful!" });
 

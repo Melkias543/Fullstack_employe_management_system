@@ -10,7 +10,7 @@ CatagoryList()
 
 const CatagoryList=async()=>{
 try {
-  const res = await axios.get("http://localhost:4500/auth/catagory_list");
+  const res = await axios.get("http://localhost:1234/auth/catagory_list");
   // console.log(res) 
   if(res.data.status){
     // console.log(res.data.result)
@@ -25,7 +25,9 @@ try {
 const handleDelete = async (id) => {
   // console.log(id);
   try {
-     const res = await axios.delete(`http://localhost:4500/auth/delete_cat/${id}`);
+     const res = await axios.delete(
+       `http://localhost:1234/auth/delete_cat/${id}`
+     );
     //  console.log(res.data.status);
 
      if (res.data.status) {

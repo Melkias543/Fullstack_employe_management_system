@@ -12,7 +12,7 @@ console.log("look",employee.id)
 
   const handleEmploye = async () => {
     try {
-      const res = await axios.get("http://localhost:4500/auth/get_Employee");
+      const res = await axios.get("http://localhost:1234/auth/get_Employee");
 
       console.log(res);
       console.log(res.data.result);

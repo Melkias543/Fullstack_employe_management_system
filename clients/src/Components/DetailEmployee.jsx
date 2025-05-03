@@ -15,7 +15,9 @@ SingleEmployee()
 },[])
 const SingleEmployee=async()=>{
   try {
-    const res = await axios.get(`http://localhost:4500/employee/detail_emp/${id}`);
+    const res = await axios.get(
+      `http://localhost:1234/employee/detail_emp/${id}`
+    );
     console.log(res.data.result[0])
     if(res.data.status){
       setEmployee(res.data.result);
@@ -31,7 +33,7 @@ const SingleEmployee=async()=>{
 
   const handleLogout=async()=>{
     try {
-      const res = await axios.get("http://localhost:4500/employee/logout");
+      const res = await axios.get("http://localhost:1234/employee/logout");
       // console.log(res)
       if(res.data.status){
         navigate("/");
@@ -59,7 +61,7 @@ const SingleEmployee=async()=>{
                     <div className="d-flex justify-content-center flex-column  align-items-center  ">
                       <img
                         className=" mb-5 border-5 w-50  rounded-circle   "
-                        src={`http://localhost:4500/image/${employe.image}`}
+                        src={`http://localhost:1234/image/${employe.image}`}
                         alt=""
                       />
                     </div>

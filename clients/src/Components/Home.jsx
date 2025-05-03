@@ -16,7 +16,7 @@ getAdmin();
 
   const TotalEmployee=async()=>{
 try {
-  const res = await axios.get("http://localhost:4500/auth/employee_count");
+  const res = await axios.get("http://localhost:1234/auth/employee_count");
   console.log(res.data.result[0].employee); 
   setEmployee(res.data.result[0].employee);
 } catch (error) {
@@ -26,7 +26,7 @@ try {
 
    const TotalAdmin = async () => {
      try {
-       const res = await axios.get("http://localhost:4500/auth/admin_count");
+       const res = await axios.get("http://localhost:1234/auth/admin_count");
        console.log(res.data.result[0].admin);
        setAdmin(res.data.result[0].admin);
      } catch (error) {
@@ -36,7 +36,7 @@ try {
 
     const TotalSalary = async () => {
       try {
-        const res = await axios.get("http://localhost:4500/auth/salary_count");
+        const res = await axios.get("http://localhost:1234/auth/salary_count");
         console.log(res.data.result[0].admin);
        
         setSalary(res.data.result[0].salary);
@@ -47,7 +47,7 @@ try {
 
 const getAdmin=async()=>{
   try {
-    const res = await axios.get("http://localhost:4500/auth/get_admins");
+    const res = await axios.get("http://localhost:1234/auth/get_admins");
     console.log(res.data.result);
      setAdminList(res.data.result);
   } catch (error) {

@@ -40,7 +40,7 @@ console.log("employe",employee);
 
     try {
       const res = await axios.put(
-        `http://localhost:4500/auth/update/${id}`,
+        `http://localhost:1234/auth/update/${id}`,
         formData
       );
       console.log(res.data);

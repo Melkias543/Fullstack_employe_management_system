@@ -8,7 +8,7 @@ function Dashboard() {
   axios.defaults.withCredentials = true;
   const handleLogout = async () => {
     try {
-      const res = await axios.get("http://localhost:4500/auth/logout");
+      const res = await axios.get("http://localhost:1234/auth/logout");
       if (res.data.status) {
         navigate("/");
       }

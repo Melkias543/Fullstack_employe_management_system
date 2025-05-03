@@ -10,7 +10,7 @@ function Start() {
   },[])
   const verfiy=async()=>{
     try {
-      const res = await axios.get("http://localhost:4500/verify");
+      const res = await axios.get("http://localhost:1234/verify");
       // console.log(res.data.role)
       // console.log(res.data.status)
       console.log(res.data);

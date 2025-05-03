@@ -41,7 +41,10 @@ e.preventDefault();
     }
 
 try {
-  const res = await axios.post("http://localhost:4500/auth/add_employee", formData);
+  const res = await axios.post(
+    "http://localhost:1234/auth/add_employee",
+    formData
+  );
   console.log(res.data)
     console.log(res.data.err);
   if(res.data.status){
@@ -79,7 +82,7 @@ console.log(err)
 
   const CatagoryList = async () => {
     try {
-      const res = await axios.get("http://localhost:4500/auth/catagory_list");
+      const res = await axios.get("http://localhost:1234/auth/catagory_list");
       console.log(res);
       if (res.data.status) {
         // console.log(res.data.result);

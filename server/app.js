@@ -7,8 +7,9 @@ import { adminRouter } from "./admin.js";
 import { employeeRoute } from "./employee.js"; 
 
 
+
 const app= express();
-const PORT=process.env.PORT;
+const PORT = 1234;
 app.use(cookieParser());
 
 // import { fileURLToPath } from "url";
@@ -17,6 +18,7 @@ app.use(cookieParser());
 // const __dirname = path.dirname(__filename);
 
 app.use(express.json())
+// app.use(cors());
 app.use(
   cors({
     origin: ["http://localhost:5173"],
@@ -31,19 +33,16 @@ app.use(express.static("public"));
 app.use("/auth", adminRouter);
 app.use("/employee", employeeRoute);
 
-app.get("/auth/adminGet", (req, res) => {
-  res.send("This is From server");
-});
 
 
 const verify = (req, res, next) => {
   const token = req.cookies.token;
-
+console.log(token)
   if (!token) {
     return res.status(401).json({ status: false, err: "No token provided" });
   }
 
-  jwt.verify(token,process.env.SCREET_KEY, (err, decode) => {
+  jwt.verify(token,"process.env.SCREET_KEY", (err, decode) => {
     if (err) {
       console.log(err);
       return res.status(403).json({ status: false, err: "Invalid token" });

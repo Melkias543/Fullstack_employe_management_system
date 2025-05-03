@@ -12,18 +12,18 @@ function EmployeLogin() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:4500/employee/get_Employe",
+        "http://localhost:1234/employee/get_Employe",
         employee
       );
-      console.log(res);
+      console.log("empl login",res);
       //.loginStatus
       if (res.data.loginStatus) {
         // console.log(res.data.result.id);
-        navigate(`/detail_Employe/${res.data.result[0].id}`);
+        navigate(`/detail_Employe/${res?.data?.result[0].id}`);
       }
     } catch (error) {
-      console.log(error.response);
-      setError(error.response.data.err);
+      console.log(error);
+      setError(error?.response?.data?.err);
     }
   };
   return (
